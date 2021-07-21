@@ -1,10 +1,10 @@
 <?xml version="1.0" ?>
 <robot name="SimpleMouse" xmlns:xacro="http://ros.org/wiki/xacro">
- <xacro:include filename="$(find amg_description)/urdf/body.urdf.xacro" />
- <xacro:include filename="$(find amg_description)/urdf/wheel.urdf.xacro" />
- <xacro:include filename="$(find amg_description)/urdf/caster.urdf.xacro" />
- <xacro:include filename="$(find amg_description)/urdf/light_sensor.urdf.xacro" />
- <xacro:include filename="$(find amg_description)/urdf/camera2.urdf.xacro" />
+ <xacro:include filename="$(find kait_gazebo)/urdf/body.urdf.xacro" />
+ <xacro:include filename="$(find kait_gazebo)/urdf/wheel.urdf.xacro" />
+ <xacro:include filename="$(find kait_gazebo)/urdf/caster.urdf.xacro" />
+ <xacro:include filename="$(find kait_gazebo)/urdf/light_sensor.urdf.xacro" />
+ <xacro:include filename="$(find kait_gazebo)/urdf/camera2.urdf.xacro" />
  <xacro:gazebo_light_sensor name="front" parent="body" xyz="0.0 0.48 0.22" direction="0" />
  <!--
  <xacro:gazebo_light_sensor name="rear"  parent="body" xyz="0.0 -0.48 0.22" direction="3.14" />
