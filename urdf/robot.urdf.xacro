@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<robot name="SimpleMouse" xmlns:xacro="http://ros.org/wiki/xacro">
+ <xacro:include filename="$(find amg_description)/urdf/body.urdf.xacro" />
+ <xacro:include filename="$(find amg_description)/urdf/wheel.urdf.xacro" />
+ <xacro:include filename="$(find amg_description)/urdf/caster.urdf.xacro" />
+ <xacro:include filename="$(find amg_description)/urdf/light_sensor.urdf.xacro" />
+ <xacro:include filename="$(find amg_description)/urdf/camera2.urdf.xacro" />
+ <xacro:gazebo_light_sensor name="front" parent="body" xyz="0.0 0.48 0.22" direction="0" />
+ <!--
+ <xacro:gazebo_light_sensor name="rear"  parent="body" xyz="0.0 -0.48 0.22" direction="3.14" />
+ -->
+ <xacro:cam sub="0" parent="body" transX="0" transY="0" transZ="0.8" />
+
+ <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <leftJoint>wheel_l_joint</leftJoint>
+      <rightJoint>wheel_r_joint</rightJoint>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <wheelSeparation>0.8</wheelSeparation>
+      <wheelDiameter>0.15</wheelDiameter>
+      <publishWheelJointState>true</publishWheelJointState>
+      <legacyMode>false</legacyMode>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+    </plugin>
+  </gazebo>
+ <xacro:wheel rl="r" parent="body" />
+ <xacro:wheel rl="l" parent="body" />
+ <xacro:caster sub="f" parent="body" transX="0" transY="0.4" transZ="-0.2" />
+ <xacro:caster sub="r" parent="body" transX="0" transY="-0.4" transZ="-0.2" />
+
+
+</robot>

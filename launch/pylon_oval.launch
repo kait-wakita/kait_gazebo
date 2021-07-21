@@ -1,0 +1,15 @@
+<launch>
+ <param name="kait_gazebo"
+     command="$(find xacro)/xacro '$(find kait_gazebo)/urdf/robot.urdf.xacro'" />
+
+ <include file="$(find gazebo_ros)/launch/empty_world.launch">
+   <arg name="world_name" value="$(find kait_gazebo)/worlds/pylon_oval.world"/>
+ </include>
+
+<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+    args="-param kait_gazebo -urdf -model SimpleMouse" />
+
+ <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+    <remap from="robot_description" to="kait_gazebo" /> 
+ </node>
+</launch>
