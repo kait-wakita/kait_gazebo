@@ -34,7 +34,7 @@
       <sensor type="camera" name="cam_${sub}">
         <update_rate>10.0</update_rate>
         <camera name="cam_${sub}">
-          <pose>${transX} ${transY} ${transZ} -1.57 0 1.57</pose>
+          <pose>${transX} ${transY} ${transZ} 0 0.3  1.57</pose>
           <horizontal_fov>1.3962634</horizontal_fov>
           <image>
             <width>800</width>
